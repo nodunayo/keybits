@@ -68,5 +68,27 @@ What are the problems here?
 Have a look at the following `AltTestResult` class. It has the same interface as `TestResult` but the internal implementation aims to alleviate some of the concerns discussed above:
 
 ```ruby
+class AltTestResult
+  attr_reader :answer_sets
 
+  def initialize(data)
+    @answer_sets = sort_answers(data)
+  end
+
+  def scores
+    answer_sets.collect { |answer_set|
+      (answer_set.correct * 5) - (answer_set.incorrect * 0.5)}
+  end
+
+  AnswerSet = Struct.new(:correct, :incorrect)
+  def sort_answers(data)
+    data.collect { |cell|
+      AnswerSet.new(cell[0], cell[1]) }
+  end
+end
 ```
+
+* The `score` method has no knowledge of the internal structure of the array it is passed
+* Knowledge of the array structure is contained within the `sort_answers` data. This methods converts the array of `Arrays` into an array of `Structs`
+* If the structure of the incoming data is altered the only changes to the code will be made in defining the `AnswerSet` struct and the `sort_answers` method.
+
