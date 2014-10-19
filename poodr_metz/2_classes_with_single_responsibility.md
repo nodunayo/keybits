@@ -38,11 +38,12 @@ Consider the following `TestResult` class:
 ```ruby
 class TestResult
   attr_reader :data
+
   def initialize(data)
     @data = data
   end
 
-  def score
+  def scores
     # 0 is the no. of correct answers, 1 is the no. of incorrect answers.
     data.collect { |cell|
       (cell[0] * 5) - (cell[1] * 0.5)}
@@ -58,8 +59,8 @@ Given the way the class is constructed, it expects to be initialised with a two-
 
 What are the problems here?
 
-* The `score` method knows where to find correct answers (at index [0]) and incorrect answers (at index [1]) within the data structure
-  * If the structure of data changes then the code inside the `score` method will also have to change
+* The `scores` method knows where to find correct answers (at index [0]) and incorrect answers (at index [1]) within the data structure
+  * If the structure of data changes then the code inside the `scores` method will also have to change
 * It is likely that as this class develops references to the array's structure will *leak*; ideally, knowledge that correct scores are at [0] should be known in one place only
 * It is not clear what the data represents; here a comment has been necessary in order to add some explanation
   * These comments will also need to be updated if the structure of `data` changes
