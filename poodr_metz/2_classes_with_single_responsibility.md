@@ -133,7 +133,14 @@ Say you have a `Gear` class and you think there could be room to extract a `Whee
 
 ```ruby
 class Gear
-  #methods here
+  # methods here
+
+  def initialize(chainring, cog, rim, tire)
+    ...
+    @wheel = Wheel.new(rim,tire)
+  end
+
+  # more methods here
 
   Wheel = Struct.new(:rim, :tire) do
     def diameter
