@@ -15,14 +15,14 @@ Take the following snippet of a `TakeawayOrder` class:
 class TakeawayOrder
   attr_reader :items, :name
   def initialize(items, name)
-	  @items = items
-	  @name = name
+    @items = items
+    @name = name
   end
 
   #...
 
   def complete_order
-	  Customer.new(name).pay_for(items)
+    Customer.new(name).pay_for(items)
   end
 
   #...
@@ -38,13 +38,13 @@ class TakeawayOrder
   attr_reader :items, :customer
   def initialize(items, customer)
     @items = items
-	  @customer = customer
+    @customer = customer
   end
   
   #...
 
   def complete_order
-	  customer.pay_for(items)
+    customer.pay_for(items)
   end
 
   #...
@@ -70,7 +70,7 @@ def total_time_to_cross_bridge
   #... some more scary maths
 end
 ```
-The time taken to cross the bridge depends on its quality, i.e. it's ability to withstand the weight of those traversing across it. However, `bridge.quality` is stuck in the middle of this complex method. It would be far better to isolate this dependency like so:
+The time taken to cross the bridge depends on its quality, i.e. its ability to withstand the weight of those traversing across it. However, `bridge.quality` is stuck in the middle of this complex method. It would be far better to isolate this dependency like so:
 
 ```ruby
 def total_time_to_cross_bridge
@@ -110,7 +110,7 @@ If working with a method that requires a few stable arguments followed by some l
 
 #### Explicitly define defaults
 
-When you've got defaults that are simple Strings or numbers, use the `fetch` method:
+When you've got defaults that are simple strings or numbers, use the `fetch` method:
 
 ```ruby
 def initialize(args)
@@ -135,18 +135,18 @@ end
 
 #### Isolate multiparameter initialization
 
-What do you do when you have to depend on a method that requires fixed-order arguments and you don't own the code fo this method?
+What do you do when you have to depend on a method that requires fixed-order arguments and you don't own the code for this method?
 
 Create a wrapper that allows you to create a new instance of that object using an options hash:
 
-```
+```ruby
 # When TakeawayOrder is part of an external interface
 module SomeFramework
   class TakeawayOrder
   attr_reader :items, :customer
-    def initialize(items, name)
-	    @items = items
-	    @name = customer
+    def initialize(items, customer)
+      @items = items
+      @customer = customer
     end
   # ...
   end
