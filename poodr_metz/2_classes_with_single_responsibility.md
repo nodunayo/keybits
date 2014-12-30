@@ -92,3 +92,55 @@ end
 * Knowledge of the array structure is contained within the `sort_answers` data. This methods converts the array of `Arrays` into an array of `Structs`
 * If the structure of the incoming data is altered the only changes to the code will be made in defining the `AnswerSet` struct and the `sort_answers` method.
 
+### Enforce Single Responsibility Everywhere
+
+We should be extracting extra responsibilities from methods.
+
+Look at the `scores` method from the `AltTestResult` class:
+
+```ruby
+def scores
+  answer_sets.collect { |answer_set|
+    (answer_set.correct * 5) - (answer_set.incorrect * 0.5)}
+end
+ ```
+
+ The method does two things: it iterates over the answer sets and then calculates the score of each answer sset.
+
+ We can separate out responsibilities like so:
+
+ ```ruby
+def scores
+  answer_sets.collect { |answer_set| score(answer_set) }
+end
+
+def score(answer_set)
+  (answer_set.correct * 5) - (answer_set.incorrect * 0.5)}
+end
+```
+
+Ensuring your methods have a single responsibility will:
+
+* Expose previously hidden qualities in you class
+* Avoid the need for comments; it'll be much clearer what each method does and the method naming should help here
+* Encourage reuse; now there is a method available for finding an individual's score
+* Make it easy to move methods to another class.
+
+
+It's also important to isolate extra responsibilities in in classes.
+
+Say you have a `Gear` class and you think there could be room to extract a `Wheel` class. Test it out by embedding a `Wheel` struct inside of the class:
+
+```ruby
+class Gear
+  #methods here
+
+  Wheel = Struct.new(:rim, :tire) do
+    def diameter
+      rim + (tire * 2)
+    end
+  end
+end
+```
+
+This is not a long-term design goal, but rather an experiment. It seems that a separate `Wheel` class is the way to go. An extra feature may be to calculate the 'bicycle wheel circumference'. If this feature request comes along, it'll be very easy to implement — all that is needed is a `circumference` method on an isolated `Wheel` class.
