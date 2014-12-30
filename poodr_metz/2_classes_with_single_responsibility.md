@@ -105,7 +105,7 @@ def scores
 end
  ```
 
- The method does two things: it iterates over the answer sets and then calculates the score of each answer sset.
+ The method does two things: it iterates over the answer sets and then calculates the score of each answer set.
 
  We can separate out responsibilities like so:
 
@@ -115,19 +115,19 @@ def scores
 end
 
 def score(answer_set)
-  (answer_set.correct * 5) - (answer_set.incorrect * 0.5)}
+  (answer_set.correct * 5) - (answer_set.incorrect * 0.5)
 end
 ```
 
 Ensuring your methods have a single responsibility will:
 
-* Expose previously hidden qualities in you class
+* Expose previously hidden qualities in your class
 * Avoid the need for comments; it'll be much clearer what each method does and the method naming should help here
 * Encourage reuse; now there is a method available for finding an individual's score
 * Make it easy to move methods to another class.
 
 
-It's also important to isolate extra responsibilities in in classes.
+It's also important to isolate extra responsibilities in classes.
 
 Say you have a `Gear` class and you think there could be room to extract a `Wheel` class. Test it out by embedding a `Wheel` struct inside of the class:
 
