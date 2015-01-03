@@ -47,3 +47,7 @@ If you must rely on a private interface, isolate the dependency to the best of y
 ### Minimize Context
 
 When creating your public interfaces, allow senders to focus on the _what_ and not the _how_.
+
+#### Keybit:
+
+The Law of Demeter are a set of design guidelines around developing loosely coupled objects. One to way to paraphrase the rule is "only talk to your immediate neighbours". Whilst it's important not to follow this rule blindly, violations of Demeter are often a sign that the public interfaces of your objects are lacking.
