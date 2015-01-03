@@ -50,4 +50,4 @@ When creating your public interfaces, allow senders to focus on the _what_ and n
 
 #### Keybit:
 
-The Law of Demeter are a set of design guidelines around developing loosely coupled objects. One to way to paraphrase the rule is "only talk to your immediate neighbours". Whilst it's important not to follow this rule blindly, violations of Demeter are often a sign that the public interfaces of your objects are lacking.
+[The Law of Demeter](http://en.wikipedia.org/wiki/Law_of_Demeter) is a set of design guidelines around developing loosely coupled objects. One to way to paraphrase the rule is "only talk to your immediate neighbours". Whilst it's important not to follow this rule blindly, violations of Demeter are often a sign that the public interfaces of your objects are lacking.
