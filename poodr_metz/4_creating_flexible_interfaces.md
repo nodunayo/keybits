@@ -9,7 +9,7 @@ Here is a table detailing the key differences between public and private interfa
 | Public Interface Methods  | Private Interface Methods|
 | :-----------------:| :---------------: |
 | Reveal class' primary responsibility  | Handle implementation details |
-| Handle implementation details | Do not expect to be sent by other objects |
+| Are expected to be called by other objects | Do not expect to be sent by other objects |
 | Will not change on a whim | Can change for any reason |
 | Are safe for others to depend on | Are not safe for others to depend on |
 | Are thoroughly documented in the tests | May not be referred to in the tests|
