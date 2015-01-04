@@ -28,7 +28,6 @@ class ChiefExaminer
   end
 end
 
-
 class Invigilator
   def monitor(students)
     #...
@@ -62,7 +61,6 @@ class ChiefExaminer
   end
 end
 
-
 class Invigilator
   def administer_exam(exam)
     monitor(exam.students)
@@ -80,7 +78,7 @@ Whilst this code is more abstract than the first snippet, this code is much easi
 
 #### Keybit:
 
-"The ability to tolerate ambiguity about the class of an object is the hallmark of a confident designer. Once you being to treat your objects as if they are defined by their behaviour rather than by their class, you enter into a new realm of expressive flexible design."
+"The ability to tolerate ambiguity about the class of an object is the hallmark of a confident designer. Once you begin to treat your objects as if they are defined by their behaviour rather than by their class, you enter into a new realm of expressive flexible design."
 
 ### Finding Ducks
 
