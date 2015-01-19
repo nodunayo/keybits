@@ -14,16 +14,16 @@ The following are a list of practices that enable you to start moving towards ap
 * Informative Workspace
   * An observer should be able to walk into the team space and get a general idea of how the project is going
 
- * Energized Work
+* Energized Work
   * Only work for as long as you can be productive
   *  "Software development is a game of insight, and insight comes to the prepared, rested, relaxed mind."
 
- * Pair Programming
+* Pair Programming
   * A dialogue between two people simultaneously programming
   * By pairing you can clarify ideas and come to solutions more quickly
   * Be sure to respect your pair's personal space
 
- * Stories
+* Stories
   * Write stories around the framework of customer-visible functionality
 
 * Weekly Cycle
