@@ -56,7 +56,7 @@ This chapter contains guidelines for each role to be played in an XP team.
   * With respect to hiring, you would rather opt for the competent-but-social programmer rather than an extremely skilled loner
   * The best interviewing technique is to have the candidate work with the team for a day; pair programming is a good test of technical and social skills
 
- * Roles
+* Roles
   * Roles on a mature XP team are not fixed
   * Everyone should be able to contribute the best they have to offer
   * As the team matures, there has to be an alignment of authority and responsibility: anyone can recommend changes, but this should be backed up by action
