@@ -10,11 +10,11 @@ XP has two principles that will increase the cost-effectiveness of testing:
 
 1. Double-checking
 
-We specify what we want a computation to do by writing a test. Then we implement the computation. This is a form of double-checking. If both of the expressions of computation match up, then the code and tests are more likely to be correct.
+    * We specify what we want a computation to do by writing a test. Then we implement the computation. This is a form of double-checking. If both of the expressions of computation match up, then the code and tests are more likely to be correct.
 
 2. Defect Cost Increase
 
-The sooner you find a defect, the cheaper it is to fix it.
+  * The sooner you find a defect, the cheaper it is to fix it.
 
 Automated testing helps to shorten the feedback loop such that defects can be fixed sooner.
 
