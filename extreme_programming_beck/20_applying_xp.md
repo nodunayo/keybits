@@ -2,6 +2,7 @@
 
 XP takes place in a complex social context. Just applying the techniques doesn't give you control of the organisation or your project. Applying XP and seeing dramatic results takes a matter of years, rather than weeks. You will see improvements in the first weeks or months, but this only sets the stage for the big leaps forward later on.
 
+#### Keybit:
 "Starting with XP is more like getting into a pool than adopting a child. There are many ways to get into a pool...There is not one right way to get in the water."
 
 Make sure you lead by example. Expecting others to do what you are not willing to try yourself is disrespectful and ineffective. A misalignment of authority and responsibility creates distrust.
