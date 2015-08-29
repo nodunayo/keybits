@@ -46,7 +46,7 @@ An abstract class is one that is disassociated from any specific instance. You w
 
 Do not make an abstract superclass with only one subclass. Even if your original class contains general and specific behaviour, the need for other specialisations may never arise.
 
-Even to subclasses may not be enough. There is a trade-off between duplicating a lot of code and not finding the correct abstraction. Say you have two cases with a third one imminent, it may be best to duplicate the code and wait for better information as to what your abstraction should be. The other question is: how regularly would your duplicated code need to change? If it is very regularly, then you may want to opt for subclassing earlier.
+Even two subclasses may not be enough. There is a trade-off between duplicating a lot of code and not finding the correct abstraction. Say you have two cases with a third one imminent, it may be best to duplicate the code and wait for better information as to what your abstraction should be. The other question is: how regularly would your duplicated code need to change? If it is very regularly, then you may want to opt for subclassing earlier.
 
 #### Keybit:
 
@@ -73,7 +73,7 @@ class Bicycle
 
   def default_tire_size
     raise NotImplementedError,
-      "#{self.class} has cannot respond to:"
+      "#{self.class} cannot respond to:"
   end
 end
 
