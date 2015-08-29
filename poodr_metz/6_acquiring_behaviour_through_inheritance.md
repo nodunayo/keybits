@@ -32,5 +32,5 @@ end
 
 The code contains an `if` statement that checks the attribute that details the category of self in order to determine what message to send to that self. This sort of knowledge is a dependency that raises the cost of change.
 
-Be very wary of this pattern. In Chapter 5 this pattern was a tool for discovering a missing duck type; here we use the pattern to discover missing subclasses.
+Be very wary of this pattern. In [Chapter 5](https://github.com/NadiDami/keybits/blob/master/poodr_metz%2F5_duck_typing.md) this pattern was a tool for discovering a missing duck type; here we use the pattern to discover missing subclasses.
 
