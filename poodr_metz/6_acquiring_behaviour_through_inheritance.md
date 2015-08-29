@@ -96,3 +96,87 @@ end
 ```
 
 See the `default_tire_size` method in the `Bicycle` class? Any class that uses the template method pattern should supply an implementation for every message it sends. This way, programmers creating new subclasses who are not aware of the subtleties of the superclass will have helpful error messages.
+
+### Decoupling Subclasses Using Hook Messages
+
+You should ensure that your subclass doesn't need to know how to interact with its abstract superclass — a telltale sign of this is when you call `super` in a few places. What happens if someone else starts working on your code and has no idea where they are meant to be sending the `super` method?
+
+Superclasses can instead send *hook* messages:
+
+```ruby
+class Bicycle
+  attr_reader :chain, :tire_size
+
+  def initialize(args={})
+    @chain      = args[:chain] || default_chain
+    @tire_size  = args[:tire_size] || default_tire_size
+
+    post_initialize(args)
+  end
+
+  # hook for subclasses to override
+  def post_initialize(args)
+    nil
+  end
+
+end
+
+class RoadBike < Bicycle
+
+  def post_initialize(args)
+    @tape_color = args[:tape_color]
+  end
+  # ...
+end
+
+```
+
+A hook message exist to give subclasses a place where they can contribute information by implementing matching methods.
+In the above code snippet, `post_initialization` allows subclasses a way to contribute to initialization. Rather than having its own initialization, `RoadBike` contributes specializations to a larger, more general, yet abstract, algorithm.
+
+This change further decouples `Bicycle` subclasses from the superclass. 
+
+Here's another code snippet in a similar vein:
+
+
+```ruby
+class Bicycle
+  # ...
+
+  def spares
+    { tire_size: tire_size,
+      chain:     chain}.merge(local_spares)
+  end
+
+
+end
+
+class RoadBike < Bicycle
+  # ...
+
+  def local_spares
+    { tape_color: tape_color }
+  end
+end
+
+```
+
+This change means that `RoadBike` doesn't have to know that `Bicycle` has an implementation of `spares` and what type of object that method returns. `local_spares` in `RoadBike` allows the class to add its own specific spare parts without worrying about when or how it will be called.
+
+### Summary
+
+* Inheritance allows you to isolate shared code and implement common algorithms in an abstract class
+* It provides a structure that allows subclasses to contribute specializations
+
+* Identifying the correct abstraction is easiest if you have access to at least three existing concrete classes
+
+* Abstract superclasses use the template method pattern to invite inheritors to supply specializations
+* They use hook methods to allow these inheritors to contribute specializations avoiding the need to send super:
+  * Subclasses don't need to know the abstract algorithm
+  * Hooks reduce the coupling between layers of heirarchy
+
+* Well-designed inheritance hierarchies are easy to extend with new subclasses
+
+#### Keybit:
+
+"When your problem is one of needing numerous specializations of a stable, common abstraction, inheritance can be an extremely low-cost solution."
