@@ -50,7 +50,7 @@ Even two subclasses may not be enough. There is a trade-off between duplicating 
 
 #### Keybit:
 
-Stick with the 'push-everything-down-and-then-pull-some-things-up' strategy! The worst that can happen is that you fail to promote some things. This will eventually be spotted — say, when you have a new case and it needs some particular behaviour that'll then be duplicated amongst the existing subclasses — and easily fixed. If you attempt the refatoring from the other direction you may leave behind concrete behaviour that does not apply to every possible new subclass.
+Stick with the 'push-everything-down-and-then-pull-some-things-up' strategy! The worst that can happen is that you fail to promote some things. This will eventually be spotted — say, when you have a new case and it needs some particular behaviour that'll then be duplicated amongst the existing subclasses — and easily fixed. If you attempt the refactoring from the other direction you may leave behind concrete behaviour that does not apply to every possible new subclass.
 
 "The general rule for refactoring into a new inheritance hierarchy is to arrange code so that you can promote abstractions rather than demote concretions."
 
