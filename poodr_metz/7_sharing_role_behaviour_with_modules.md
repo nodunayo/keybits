@@ -113,3 +113,33 @@ end
 Once incorporated in other classes, the code will resemble classical inheritance: The code in `Schedulable` is the abstraction and it uses the template method pattern to invite objects to provide specialisations to the algorithm it supplies. `Schedulables` can then override `lead_days` in order to supply its specialisation.
 
 The difference between classical inheritance and sharing code via modules can be boiled down to the difference bewteen *is_a* and *behaves_like_a*.
+
+### Writing Inheritable Code
+
+* Recognize the Antipatterns
+  * An object that uses a variable with a name like *type* or *category* to determine what message to send to *self* — rearrange to use classical inheritance
+  * When a sending object checks the class of a receiving object to determine what message to send — use a duck type
+
+* Insist on the Abstraction
+  * All code in an abstract superclass should apply to every class that inherits it
+  * The same goes for modules
+
+* Honour the Contract
+  * Subclasses agree to a contract. They must respond to every message in that interface
+
+* Use the Template Method Pattern
+  * This is the fundamental coding technique for creating inheritable code
+  * The abstract code defines the algorithms and the concrete inheritors of that abstraction contribute specialisations when they override the template methods
+
+* Preemptively Decouple Classes
+  * Avoid writing code that requires its inheritors to send `super` — instead use hook messages
+  * Keep in mind: sending hook messages only works for adjacent levels of hierarchy
+
+* Create Shallow Hierarchies
+  * Each hierarchy can be thought of as a pyramid that has depth and breadth
+  * Shallow, narrow hierarchies are easy to understand
+  * Deep hierarchies define a very long search path for message resolution; often leads to built-in dependencies
+
+#### Keybit:
+
+"When objects that play a common role need to share behaviour, they do so via a Ruby module."
