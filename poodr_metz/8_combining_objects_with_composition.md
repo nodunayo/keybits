@@ -1,6 +1,6 @@
 ### Combining Objects with Composition
 
-This chapter continues on from where [Chapter 6]build(https://github.com/NadiDami/keybits/blob/master/poodr_metz/6_acquiring_behaviour_through_inheritance.md) left off. The aim is to take that example and, through a series of refactorings, replacing inheritance with composition.
+This chapter continues on from where [Chapter 6](https://github.com/NadiDami/keybits/blob/master/poodr_metz/6_acquiring_behaviour_through_inheritance.md) left off. The aim is to take that example and, through a series of refactorings, replacing inheritance with composition.
 
 Composition describes a *has_a* relationship. A *composed* object is made up of parts with which it will interact with via well-defined interfaces.
 
@@ -23,9 +23,9 @@ Be biased towards using composition over inheritance if composition can solve th
 * Hierarchies are also exemplary: they provide guidance for writing the code that will extend them
 
 * Be wary of applying inheritance to problems that it is not suited to. You will get code that is the opposite of...
-* ...reasonable: small changes will break everything; there is high cost to making changes near the top of an incorrectly modeled heirarchy
-* ...usable: it becomes impossible to add behaviour when new subclasses represent a mixture of types
-* ...exemplary: novices will not recognise when incorrectly modeled hierarchies need to be refactored rather than extended.
+  * ...reasonable: small changes will break everything; there is high cost to making changes near the top of an incorrectly modeled heirarchy
+  * ...usable: it becomes impossible to add behaviour when new subclasses represent a mixture of types
+  * ...exemplary: novices will not recognise when incorrectly modeled hierarchies need to be refactored rather than extended.
 
 #### Keybit:
 "Inheritance by definition comes with a deeply embedded set of dependencies. Subclasses depend on the methods defined in their superclasses *and* on the automatic delegation of messages to those superclasses." Therefore, asking the question "What will happen when I'm wrong?" assumes special importance here.
